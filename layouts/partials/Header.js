@@ -4,6 +4,7 @@ import menu from "@config/menu.json";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { fbEvent } from '@rivercode/facebook-conversion-api-nextjs';
 
 const Header = () => {
   //router
@@ -14,6 +15,23 @@ const Header = () => {
 
   // states declaration
   const [navOpen, setNavOpen] = useState(false);
+
+  const handleFbConversion = () => {
+    try {
+      console.log(`fbEvent called for contact`);
+      console.log(`process.env.NEXT_PUBLIC_FB_PIXEL_ID`,process.env.NEXT_PUBLIC_FB_PIXEL_ID);
+      console.log(`FB_ACCESS_TOKEN`,process.env.FB_ACCESS_TOKEN);
+
+    fbEvent({
+      eventName: 'Contact',
+      firstName: 'John',
+      emails:['nipunupekshana1@gmail.com'],
+      enableStandardPixel: true,
+    }); // default event
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // logo source
   const { logo } = config.site;
@@ -84,7 +102,10 @@ const Header = () => {
                   <li className="nav-item">
                     <Link
                       href={menu.url}
-                      onClick={() => setNavOpen(false)}
+                      onClick={() => {
+                        setNavOpen(false);
+                        handleFbConversion();
+                      }}
                       className={`nav-link block ${
                         router.asPath === menu.url ? "nav-link-active" : ""
                       }`}

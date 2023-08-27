@@ -3,6 +3,10 @@ import theme from "@config/theme.json";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import TagManager from "react-gtm-module";
+import {
+  FBPixelScript,
+  FBPixelProvider,
+} from "@rivercode/facebook-conversion-api-nextjs/components";
 import "styles/style.scss";
 
 const App = ({ Component, pageProps }) => {
@@ -25,8 +29,7 @@ const App = ({ Component, pageProps }) => {
     gtmId: config.params.tag_manager_id,
   };
   useEffect(() => {
-    config.params.tag_manager_id &&
-        TagManager.initialize(tagManagerArgs);
+    config.params.tag_manager_id && TagManager.initialize(tagManagerArgs);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -50,7 +53,10 @@ const App = ({ Component, pageProps }) => {
           content="width=device-width, initial-scale=1, maximum-scale=5"
         />
       </Head>
-      <Component {...pageProps} />
+      <FBPixelScript />
+      <FBPixelProvider>
+        <Component {...pageProps} />
+      </FBPixelProvider>
     </>
   );
 };

@@ -1,10 +1,30 @@
 import Link from "next/link";
 import Cta from "./components/Cta";
+import { fbEvent } from "@rivercode/facebook-conversion-api-nextjs";
+import { useEffect } from "react";
 
 function Pricing({ data }) {
   const {
     frontmatter: { title, plans, call_to_action },
   } = data;
+  const handleFbConversion = () => {
+    try {
+      console.log(`fbEvent called from Pricing`);
+      console.log(`process.env.NEXT_PUBLIC_FB_PIXEL_ID`,process.env.NEXT_PUBLIC_FB_PIXEL_ID);
+      console.log(`FB_ACCESS_TOKEN`,process.env.FB_ACCESS_TOKEN);
+    fbEvent({
+      eventName: 'ViewContent',
+      firstName: 'PriceName',
+      emails:['shevin12@gmail.com'],
+      enableStandardPixel: true,
+    }); // default event
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    handleFbConversion();
+  }, []);
   return (
     <>
       <section className="section pb-0">
