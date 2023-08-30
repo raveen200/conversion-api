@@ -26,6 +26,7 @@ const Header = () => {
       eventName: 'Contact',
       firstName: 'John',
       emails:['nipunupekshana1@gmail.com'],
+      testEventCode: 'TEST64198',
       enableStandardPixel: true,
     }); // default event
     } catch (error) {
