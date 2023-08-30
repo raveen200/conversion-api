@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Cta from "./components/Cta";
-import { fbEvent } from "@rivercode/facebook-conversion-api-nextjs";
+import { fbEvent } from "./components/custom/Conversion-API-wrapper";
 import { useEffect } from "react";
 
 function Pricing({ data }) {

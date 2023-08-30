@@ -4,7 +4,7 @@ import menu from "@config/menu.json";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { fbEvent } from '@rivercode/facebook-conversion-api-nextjs';
+import { fbEvent } from '../components/custom/Conversion-API-wrapper';
 
 const Header = () => {
   //router
@@ -26,6 +26,10 @@ const Header = () => {
       eventName: 'Contact',
       firstName: 'John',
       emails:['nipunupekshana1@gmail.com'],
+      custom_data: {
+        custom_param1: 'ABC',
+        custom_param2: 123,
+      },
       testEventCode: 'TEST64198',
       enableStandardPixel: true,
     }); // default event

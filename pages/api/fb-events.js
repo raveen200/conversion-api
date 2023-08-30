@@ -1,3 +1,3 @@
-import { fbEventsHandler } from '@rivercode/facebook-conversion-api-nextjs/handlers';
+import { fbEventsHandler } from '../../layouts/components/custom/Conversion-API-wrapper/handlers';
 
 export default fbEventsHandler;

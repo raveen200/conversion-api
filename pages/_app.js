@@ -6,7 +6,7 @@ import TagManager from "react-gtm-module";
 import {
   FBPixelScript,
   FBPixelProvider,
-} from "@rivercode/facebook-conversion-api-nextjs/components";
+} from "./../layouts/components/custom/Conversion-API-wrapper/components";
 import "styles/style.scss";
 
 const App = ({ Component, pageProps }) => {
