@@ -23,9 +23,12 @@ const Header = () => {
       console.log(`FB_ACCESS_TOKEN`,process.env.FB_ACCESS_TOKEN);
 
     fbEvent({
-      eventName: 'Contact',
+      eventName: 'CompleteRegistration',
       firstName: 'John',
+      lastName: 'Doe',
       emails:['nipunupekshana1@gmail.com'],
+      currency: 'AUD',
+      value: "0.00",
       custom_data: {
         custom_param1: 'ABC',
         custom_param2: 123,
