@@ -11,6 +11,9 @@ type Arguments = {
  * @constructor
  */
 const graphApi = async <T>({ endpoint = '', body = null }: Arguments): Promise<T> => {
+  // for (var pair of body.entries()) {
+  //   console.log(pair[0]+ ', ' + pair[1]); 
+  // }
   const pixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID ?? '';
 
   const request = new Request(`https://graph.facebook.com/v17.0/${pixelId}/${endpoint}`, {
