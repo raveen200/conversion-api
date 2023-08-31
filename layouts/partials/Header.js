@@ -29,10 +29,10 @@ const Header = () => {
       emails:['nipunupekshana1@gmail.com'],
       currency: 'AUD',
       value: "0.00",
-      custom_data: {
-        custom_param1: 'ABC',
-        custom_param2: 123,
-      },
+      // custom_data: {
+      //   custom_param1: 'ABC',
+      //   custom_param2: 123,
+      // },
       testEventCode: 'TEST64198',
       enableStandardPixel: true,
     }); // default event
